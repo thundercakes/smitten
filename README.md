@@ -14,9 +14,10 @@ _You may need to uninstall older versions of Microsoft Visual C++ and/or .NET Fr
 
 ##Setup
 * Install the three requirements above.
-* Edit blue table in commands.xlsx.  
+* Optional
+	* Edit blue table in commands.xlsx by adding your own commands.  
 (This site may help: http://smite.gamepedia.com/Voice_Guided_System)
-* Copy built arrays into smitten.ahk editing zone.
+	* Copy built arrays into smitten.ahk editing zone.
 * Run smitten.ahk.
 * An icon will appear in your System Tray.
 

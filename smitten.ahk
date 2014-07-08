@@ -1,12 +1,13 @@
 #MaxThreadsPerHotkey 2
 #SingleInstance force
 
+#include %A_ScriptDir%
 #Include speech.ahk
 
 ;BEGIN EDITING ZONE
-whitelist := ["attack", "behind", "jungle", "careful", "defend", "laugh", "joke", "missing", "gank", "help", "incoming", "ward", "retreat", "on it", "buff", "take", "re", "okay", "b", "mana", "thanks", "wait", "cancel", "nice", "welcome", "group", "stay", "trap", "ultimate"]
+whitelist := ["attack","behind","jungle","careful","defend","laugh","joke","missing","gank","help","incoming","ward","retreat","on it","buff","take","re","okay","b","mana","thanks","wait","cancel","nice","welcome","group","stay","trap","ultimate","way"]
 
-commands := ["VAA", "VVVB", "VBJJ", "VCC", "VDD", "VEL", "VEJ", "VFF", "VGG", "VHH", "VII", "VQN", "VRR", "VSO", "VSBB", "VSBT", "VTT", "VVA", "VVB", "VVM", "VVT", "VVW", "VVX", "VVGN", "VVGW", "VVVG", "VVVS", "VVVT", "VVVR"]
+commands := ["VAA","VVVB","VBJJ","VCC","VDD","VEL","VEJ","VFF","VGG","VHH","VII","VQN","VRR","VSO","VSBB","VSBT","VTT","VVA","VVB","VVM","VVT","VVW","VVX","VVGN","VVGW","VVVG","VVVS","VVVT","VVVR","VVVE"]
 ;END EDITING ZONE
 
 dictionary := {}
@@ -19,7 +20,7 @@ class CustomSpeech extends SpeechRecognizer
     {
 		global dictionary
 		lookup := dictionary[Text]
-        TrayTip, Speech Recognition, You said: %Text% -- %lookup%
+		TrayTip, Speech Recognition, You said: %Text% -- %lookup%
 		BlockInput, On
 		SetKeyDelay, 30
 		Send %lookup%
