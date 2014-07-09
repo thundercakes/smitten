@@ -3,7 +3,6 @@
 _Push-to-Talk commands for SMITE's Voice Guided System (VGS)_
 
 ##Requirements
-* http://ahkscript.org/
 * http://www.microsoft.com/en-us/download/details.aspx?id=40772
 
 * Choose
@@ -13,11 +12,12 @@ _Push-to-Talk commands for SMITE's Voice Guided System (VGS)_
 _You may need to uninstall older versions of Microsoft Visual C++ and/or .NET Framework first._
 
 ##Setup
-* Install the three requirements above.
+* Install the requirements above.
+* Make sure smitten.exe and commands.csv are in the same folder.
 * Optional:  
 You may edit commands.csv with Excel or a text editor to add/edit your own commands.  
 (This site may help: http://smite.gamepedia.com/Voice_Guided_System)
-* Run smitten.ahk.
+* Run smitten.exe.
 * An icon will appear in your System Tray.
 
 ##Use

@@ -1,107 +1,11 @@
 #NoEnv
-
 #Warn All
 #Warn LocalSameAsGlobal, Off
 #Persistent
+#MaxThreadsPerHotkey 2
+#SingleInstance force
 
-/*
-Speech Recognition
-==================
-A class providing access to Microsoft's SAPI. Requires the SAPI SDK.
-
-Reference
----------
-### Recognizer := new SpeechRecognizer
-
-Creates a new speech recognizer instance.
-
-The instance starts off listening to any phrases.
-
-### Recognizer.Recognize(Values = True)
-
-Set the values that can be recognized by the recognizer.
-
-If `Values` is an array of strings, the array is interpreted as a list of possibile phrases to recognize. Phrases not in the array will not be recognized. This provides a relatively high degree of recognition accuracy compared to dictation mode.
-
-If `Values` is otherwise truthy, dictation mode is enabled, which means that the speech recognizer will attempt to recognize any phrases spoken.
-
-If `Values` is falsy, the speech recognizer will be disabled and will stop listening if currently doing so.
-
-Returns the speech recognizer instance.
-
-### Recognizer.Listen(State = True)
-
-Set the state of the recognizer.
-
-If `State` is truthy, then the recognizer will start listening if not already doing so.
-
-If `State` is falsy, then the recognizer will stop listening if currently doing so.
-
-Returns the speech recognizer instance.
-
-### Text := Recognizer.Prompt(Timeout = -1)
-
-Obtains the next phrase spoken as plain text.
-
-If `Timeout` is a positive number, the function will stop and return a blank string after this amount of time, if the user has not said anything in this interval.
-
-If `Timeout` is a negative number, the function will wait indefinitely for the user to speak a phrase.
-
-Returns the text spoken.
-
-### Recognizer.OnRecognize(Text)
-
-A callback invoked immediately upon any phrases being recognized.
-
-The `Text` parameter received the phrase spoken.
-
-This function is meant to be overridden in subclasses. By default, it does nothing.
-
-The return value is discarded.
-*/
-
-/* Example: recognizing a specific list of phrases
-TrayTip, Speech Recognition, Say a number between 0 and 9 inclusive
-
-s := new SpeechRecognizer
-s.Recognize(["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"])
-Text := s.Prompt()
-
-TrayTip, Speech Recognition, You said: %Text%
-Sleep, 3000
-ExitApp
-*/
-
-/* Example: recognizing any phrase
-TrayTip, Speech Recognition, Say something
-
-s := new SpeechRecognizer
-s.Recognize(True)
-Text := s.Prompt()
-
-TrayTip, Speech Recognition, You said: %Text%
-Sleep, 3000
-ExitApp
-*/
-
-/* Example: custom behaviour upon phrase recognition
-TrayTip, Speech Recognition, Say something (press Escape to close)
-
-s := new CustomSpeech ;create the custom speech recognizer
-s.Recognize(True)
-
-Esc::ExitApp
-
-class CustomSpeech extends SpeechRecognizer
-{
-    OnRecognize(Text)
-    {
-        static cSpeaker := ComObjCreate("SAPI.SpVoice")
-        TrayTip, Speech Recognition, You said: %Text%
-        cSpeaker.Speak("You said: " . Text)
-    }
-}
-*/
+#include %A_ScriptDir%
 
 class SpeechRecognizer
 { ;speech recognition class by Uberi
@@ -269,4 +173,57 @@ SpeechRecognizer_Recognition(StreamNumber, StreamPosition, RecognitionType, cRes
     }
 
     Instance.OnRecognize(Text) ;invoke callback in recognizer
+}
+
+whitelist := []
+commands := []
+dictionary := {}
+
+Loop, read, commands.csv
+{
+    LineNumber = %A_Index%
+    Loop, parse, A_LoopReadLine, CSV
+    {
+		global whitelist
+		global commands
+		
+		if(mod(A_Index,2) = 0)
+			commands.Insert(A_LoopField)
+		else
+			whitelist.Insert(A_LoopField)
+    }
+}
+
+Loop % whitelist.maxIndex()
+	dictionary[whitelist[A_Index]] := commands[A_Index]
+
+class CustomSpeech extends SpeechRecognizer
+{
+    OnRecognize(Text)
+    {
+		global dictionary
+		lookup := dictionary[Text]
+		TrayTip, Speech Recognition, You said: %Text% -- %lookup%
+		BlockInput, On
+		SetKeyDelay, 30
+		Send %lookup%
+		BlockInput, Off
+    }
+}
+
+Loop {
+	IfWinActive, Smite
+	{
+		KeyWait, LShift, D
+		SoundBeep
+		
+		s := new CustomSpeech
+		s.Recognize(whitelist)
+		
+		KeyWait, LShift, D T4
+		SoundBeep, 750, 500
+		
+		s.__Delete()
+		s := ""
+	}
 }
