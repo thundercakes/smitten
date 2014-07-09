@@ -14,10 +14,9 @@ _You may need to uninstall older versions of Microsoft Visual C++ and/or .NET Fr
 
 ##Setup
 * Install the three requirements above.
-* Optional
-	* Edit blue table in commands.xlsx by adding your own commands.  
+* Optional:  
+You may edit commands.csv with Excel or a text editor to add/edit your own commands.  
 (This site may help: http://smite.gamepedia.com/Voice_Guided_System)
-	* Copy built arrays into smitten.ahk editing zone.
 * Run smitten.ahk.
 * An icon will appear in your System Tray.
 
@@ -30,3 +29,36 @@ _You may need to uninstall older versions of Microsoft Visual C++ and/or .NET Fr
 
 **Feel free to tinker!**  
 (e.g. Parsing the XLSX as a CSV would prevent the need to copy and paste.)
+
+##Current Commands
+Here's a list of current commands:  
+attack : VAA  
+behind : VVVB  
+jungle : VBJJ  
+careful : VCC  
+defend : VDD  
+laugh : VEL  
+joke : VEJ  
+missing : VFF  
+gank : VGG  
+help : VHH  
+incoming : VII  
+ward : VQN  
+retreat : VRR  
+on it : VSO  
+buff : VSBB  
+take : VSBT  
+re : VTT  
+okay : VVA  
+b : VVB  
+mana : VVM  
+thanks : VVT  
+wait : VVW  
+cancel : VVX  
+nice : VVGN  
+welcome : VVGW  
+group : VVVG  
+stay : VVVS  
+trap : VVVT  
+ultimate : VVVR  
+way : VVVE  

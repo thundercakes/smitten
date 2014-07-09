@@ -4,13 +4,25 @@
 #include %A_ScriptDir%
 #Include speech.ahk
 
-;BEGIN EDITING ZONE
-whitelist := ["attack","behind","jungle","careful","defend","laugh","joke","missing","gank","help","incoming","ward","retreat","on it","buff","take","re","okay","b","mana","thanks","wait","cancel","nice","welcome","group","stay","trap","ultimate","way"]
-
-commands := ["VAA","VVVB","VBJJ","VCC","VDD","VEL","VEJ","VFF","VGG","VHH","VII","VQN","VRR","VSO","VSBB","VSBT","VTT","VVA","VVB","VVM","VVT","VVW","VVX","VVGN","VVGW","VVVG","VVVS","VVVT","VVVR","VVVE"]
-;END EDITING ZONE
-
+whitelist := []
+commands := []
 dictionary := {}
+
+Loop, read, commands.csv
+{
+    LineNumber = %A_Index%
+    Loop, parse, A_LoopReadLine, CSV
+    {
+		global whitelist
+		global commands
+		
+		if(mod(A_Index,2) = 0)
+			commands.Insert(A_LoopField)
+		else
+			whitelist.Insert(A_LoopField)
+    }
+}
+
 Loop % whitelist.maxIndex()
 	dictionary[whitelist[A_Index]] := commands[A_Index]
 
