@@ -28,7 +28,7 @@ You may edit commands.csv with Excel or a text editor to add/edit your own comma
 * Exit via System Tray.
 
 **Feel free to tinker!**  
-(e.g. Parsing the XLSX as a CSV would prevent the need to copy and paste.)
+(e.g. Using a GUI to add/edit commands.)
 
 ##Current Commands
 Here's a list of current commands:  
