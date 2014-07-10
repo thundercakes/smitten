@@ -18,14 +18,12 @@ _You may need to uninstall older versions of Microsoft Visual C++ and/or .NET Fr
 You may edit commands.csv with Excel or a text editor to add/edit your own commands.  
 (This site may help: http://smite.gamepedia.com/Voice_Guided_System)
 * Run smitten.exe.
-* An icon will appear in your System Tray.
+* An icon will appear in your System Tray. Wait for it to display a "Ready" message.  
 
 ##Use
-* Tapping left Shift gives a 4 second limit to say a whitelist word.
-* Tapping left Shift within 4 seconds terminates the listening early.
-* It takes some practice to get used to the timing and recognition delay.
-* Good whitelist words help with the delay.
-* Exit via System Tray.
+* Press and hold left Shift to say a command from the commands.csv file.
+* Release left Shift to suspend listening.
+* Exit the program via System Tray.
 
 **Feel free to tinker!**  
 (e.g. Using a GUI to add/edit commands.)
@@ -48,7 +46,7 @@ retreat : VRR
 on it : VSO  
 buff : VSBB  
 take : VSBT  
-re : VTT  
+returned : VTT  
 okay : VVA  
 b : VVB  
 mana : VVM  
