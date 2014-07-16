@@ -165,7 +165,7 @@ oops : vvgo
 quiet : vvgq  
 no problem : vvgr  
 curses : vvgs  
-that’s too bad : vvgt  
+that's too bad : vvgt  
 you're welcome : vvgw  
 set up an ambush here : vvva  
 behind us : vvvb  
@@ -178,6 +178,6 @@ going into the jungle : vvvj
 split push : vvvp  
 ultimate is ready : vvvr  
 stay here : vvvs  
-it’s a trap : vvvt  
+it's a trap : vvvt  
 place a ward for teleport : vvvw  
 spread out : vvvx  
