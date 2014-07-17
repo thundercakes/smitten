@@ -5,6 +5,9 @@
 #MaxThreadsPerHotkey 2
 #SingleInstance force
 
+Menu, Tray, NoStandard
+Menu, Tray, Add, Exit, Exit
+
 #include %A_ScriptDir%
 
 class SpeechRecognizer
@@ -233,3 +236,7 @@ Loop {
 		SoundBeep,300,50
 	}
 }
+
+Exit:
+ExitApp
+return
