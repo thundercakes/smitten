@@ -5,6 +5,7 @@
 #MaxThreadsPerHotkey 2
 #SingleInstance force
 
+Menu, Tray, Tip, smitten: Push-to-Talk commands for SMITE's Voice Guided System (VGS)
 Menu, Tray, NoStandard
 Menu, Tray, Add, Exit, Exit
 
