@@ -6,8 +6,9 @@ _Push-to-Talk commands for SMITE's Voice Guided System (VGS)_
 * http://www.microsoft.com/en-us/download/details.aspx?id=40772
 
 * Choose
-	* Windows 7 -- http://www.microsoft.com/en-us/download/details.aspx?id=8279
-	* Windows 8 -- http://msdn.microsoft.com/en-us/windows/bg162891.aspx
+	* Windows 7  -- http://www.microsoft.com/en-us/download/details.aspx?id=8279
+	* Windows 8  -- http://msdn.microsoft.com/en-us/windows/bg162891.aspx
+	* Windows 10 -- https://dev.windows.com/en-us/downloads/windows-10-sdk
 
 _You may need to uninstall older versions of Microsoft Visual C++ and/or .NET Framework first._
 
