@@ -26,6 +26,8 @@ You may edit commands.csv with Excel or a text editor to customize the phrase sp
 * Release left Shift to suspend listening.
 * Exit the program via System Tray.
 
+_You can change the active microphone by right-clicking the tray icon._
+
 **Feel free to tinker!**  
 (e.g. Using a GUI to add/edit commands.)
 
