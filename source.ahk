@@ -4,11 +4,6 @@
 #Persistent
 #MaxThreadsPerHotkey 2
 #SingleInstance force
-
-Menu, Tray, Tip, smitten: Push-to-Talk commands for SMITE's Voice Guided System (VGS)
-Menu, Tray, NoStandard
-Menu, Tray, Add, Exit, Exit
-
 #include %A_ScriptDir%
 
 class SpeechRecognizer
@@ -225,6 +220,21 @@ Loop % whitelist.maxIndex()
 s.Phrases(whitelist)
 s.Ready()
 
+Menu, Tray, Tip, smitten: Push-to-Talk commands for SMITE's Voice Guided System (VGS)
+Menu, Tray, NoStandard
+
+Loop {
+	indexhelper = -1
+	indexhelper += A_Index
+	if(indexhelper < s.cListener.GetAudioInputs().Count()) {
+		Menu, Tray, Add, % s.cListener.GetAudioInputs().Item(indexhelper).GetDescription(), MenuHandler
+	}
+	else {
+		Menu, Tray, Add, Exit, Exit
+		break
+	}
+}
+
 Loop {
 	KeyWait, LShift, D
 	IfWinActive, Smite
@@ -237,6 +247,14 @@ Loop {
 		SoundBeep,300,50
 	}
 }
+
+MenuHandler:
+if(A_ThisMenuItemPos > 0) {
+	indexmenu = -1
+	indexmenu += A_ThisMenuItemPos
+	s.cListener.AudioInput := s.cListener.GetAudioInputs().Item(indexmenu)
+}
+return
 
 Exit:
 ExitApp
