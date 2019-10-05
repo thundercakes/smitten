@@ -1,38 +1,39 @@
-#smitten
+# smitten
 
-_Push-to-Talk commands for SMITE's Voice Guided System (VGS)_
+_Speech-to-Text commands for SMITE's Voice Guided System (VGS)_
 
-##Requirements
-* http://www.microsoft.com/en-us/download/details.aspx?id=40772
-
-* Choose
-	* Windows 7  -- http://www.microsoft.com/en-us/download/details.aspx?id=8279
-	* Windows 8  -- http://msdn.microsoft.com/en-us/windows/bg162891.aspx
-	* Windows 10 -- https://dev.windows.com/en-us/downloads/windows-10-sdk
+## Requirements
+* [Install the lastest .NET Framework Developer Pack for your version of Windows](https://dotnet.microsoft.com/download/visual-studio-sdks)
+* [Install the latest Windows SDK for your version of Windows](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive)
 
 _You may need to uninstall older versions of Microsoft Visual C++ and/or .NET Framework first._
 
-##Setup
+## Setup
 * Install the requirements above.
 * Make sure smitten.exe and commands.csv are in the same folder.
 * Optional:  
-You may edit commands.csv with Excel or a text editor to customize the phrase spoken for a command.  
-(Reference: http://smite.gamepedia.com/Voice_Guided_System)
+You may edit commands.csv with Excel or a text editor to customize the phrase spoken for a command.
+([Reference](http://smite.gamepedia.com/Voice_Guided_System))
 * Run smitten.exe.
-* An icon will appear in your System Tray. Wait for it to display a "Ready" message.  
+* An icon will appear in your System Tray.  
+Wait for it to display a "Ready" message.  
+The message may appear as a pop-up or display silently in the Windows 10 Notification Center.
 
-##Use
-* Press and hold left Shift to say a command from the commands.csv file.
+_Note: You can change the active microphone by right-clicking the tray icon._
+
+## Use
+* Press and hold left Shift and speak a command from the commands.csv file into your microphone.
 * Release left Shift to suspend listening.
 * Exit the program via System Tray.
 
-_You can change the active microphone by right-clicking the tray icon._
+## Troubleshooting
+* If the program runs but no commands are typed, try running Smitten as Administrator or in Compatibility Mode.
 
-**Feel free to tinker!**  
-(e.g. Using a GUI to add/edit commands.)
+**Feel free to tinker with the source code!**  
+(e.g. Writing code to create a GUI to add/edit commands to commands.csv)
 
-##Commands
-###Speaking the phrase on the left will trigger the VGS command on the right
+## Commands
+### Speaking the phrase on the left will trigger the VGS command on the right
 attack left lane : va1  
 attack middle lane : va2  
 attack right lane : va3  
